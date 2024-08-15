@@ -8,13 +8,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validate form data
     if (empty($name) || empty($subject) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        // Invalid form data
         http_response_code(400);
         echo "Please complete the form and try again.";
         exit;
     }
 
-    // Set the recipient email address (your email address)
+    // Set the recipient email address
     $recipient = "john16stephen.js@gmail.com"; // Replace with your real email address
 
     // Create the email content
@@ -28,16 +27,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Send the email
     if (mail($recipient, $email_subject, $email_content, $email_headers)) {
-        // Email sent successfully
         http_response_code(200);
         echo "Thank you! Your message has been sent.";
     } else {
-        // Email failed to send
         http_response_code(500);
         echo "Oops! Something went wrong, and we couldn't send your message.";
     }
 } else {
-    // Not a POST request
     http_response_code(403);
     echo "There was a problem with your submission. Please try again.";
 }
