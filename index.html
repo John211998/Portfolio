@@ -59,13 +59,35 @@
       <a href="https://www.linkedin.com/in/flytojohn" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
     </div>
 
+    <!-- Loader HTML -->
+    <div id="loader" class="loader" style="display: none;">
+      <svg viewBox="0 0 80 80">
+        <circle r="32" cy="40" cx="40" id="test"></circle>
+      </svg>
+    </div>
+
+    <!-- Triangle Loader -->
+    <div id="loader-triangle" class="loader triangle" style="display: none;">
+      <svg viewBox="0 0 86 80">
+        <polygon points="43 8 79 72 7 72"></polygon>
+      </svg>
+    </div>
+
+    <!-- Rectangular Loader -->
+    <div id="loader-rect" class="loader" style="display: none;">
+      <svg viewBox="0 0 80 80">
+        <rect height="64" width="64" y="8" x="8"></rect>
+      </svg>
+    </div>
+
+    <!-- Navigation Menu -->
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i>Projects</a></li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+        <li><a href="#hero" class="active" data-loader="circle"><i class="bi bi-house navicon"></i>Home</a></li>
+        <li><a href="#about" data-loader="triangle"><i class="bi bi-person navicon"></i> About</a></li>
+        <li><a href="#resume" data-loader="rect"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+        <li><a href="#portfolio" data-loader="circle"><i class="bi bi-images navicon"></i>Projects</a></li>
+        <li><a href="#contact" data-loader="triangle"><i class="bi bi-envelope navicon"></i> Contact</a></li>
       </ul>
     </nav>
 

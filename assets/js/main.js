@@ -30,7 +30,6 @@
         headerToggle();
       }
     });
-
   });
 
   /**
@@ -164,7 +163,6 @@
         }
       }, false);
     });
-
   });
 
   /**
@@ -221,9 +219,47 @@
       } else {
         navmenulink.classList.remove('active');
       }
-    })
+    });
   }
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
+
+  /**
+   * Loader Functionality
+   */
+  document.querySelectorAll('#navmenu a').forEach(link => {
+    link.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default link behavior
+
+      // Hide all loaders
+      document.getElementById('loader').style.display = 'none';
+      document.getElementById('loader-triangle').style.display = 'none';
+      document.getElementById('loader-rect').style.display = 'none';
+
+      // Determine which loader to show
+      const loaderType = link.getAttribute('data-loader');
+      if (loaderType === 'circle') {
+        document.getElementById('loader').style.display = 'inline-block';
+      } else if (loaderType === 'triangle') {
+        document.getElementById('loader-triangle').style.display = 'inline-block';
+      } else if (loaderType === 'rect') {
+        document.getElementById('loader-rect').style.display = 'inline-block';
+      }
+
+      // Simulate loading time (adjust as needed)
+      setTimeout(() => {
+        // Hide the loader after loading is done
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('loader-triangle').style.display = 'none';
+        document.getElementById('loader-rect').style.display = 'none';
+
+        // Scroll to the clicked section (adjust for your specific needs)
+        const section = document.querySelector(link.getAttribute('href'));
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 2000); // Simulating 2 seconds load time
+    });
+  });
 
 })();
